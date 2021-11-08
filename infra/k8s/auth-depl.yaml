@@ -13,21 +13,23 @@ spec:
         app: auth
     spec:
       containers:
-      - name: auth
-        image: gcr.io/zinc-reason-331501/auth
-
+        - name: auth
+          image: gcr.io/zinc-reason-331501/auth
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: auth
-  name: auth-svc
+  name: auth-srv
 spec:
   selector:
     app: auth
   ports:
-  - name: auth
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
+    - name: auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+
+
+
+
+    
