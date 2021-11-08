@@ -1,0 +1,21 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  # local:
+	#   push: false
+  googleCloudBuild:
+    projectId: zinc-reason-331501
+artifacts:
+  - image: gcr.io/zinc-reason-331501/auth
+    context: auth
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      manual:
+        - src: 'src/**/*.ts'
+	        dest: .
+  
