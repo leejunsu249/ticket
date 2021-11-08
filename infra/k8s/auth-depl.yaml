@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: auth
-        image: wnstn385/auth
+        image: gcr.io/zinc-reason-331501/auth
 
 ---
 apiVersion: v1
