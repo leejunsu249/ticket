@@ -6,7 +6,7 @@ import { DataConnectionError } from '../errors/database-connection-error';
 const router = Router();
 
 router.post('/api/users/signup',[
-    body('email').isEmail().withMessage('이메일 형식을 입력해주세요'),
+    body('email').isEmail().withMessage('이메일 형식을 확인해주세요'),
     body('password').trim().isLength({ min:5, max: 20}).withMessage('암호는 5~20자 사이여야 합니다.')
 ],
 (req: Request, res: Response) => {
