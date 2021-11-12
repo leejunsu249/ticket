@@ -37,3 +37,5 @@ const connect = async () => {
     });
 };
 
+connect();
+
