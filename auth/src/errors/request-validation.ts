@@ -1,5 +1,5 @@
 import { ValidationError } from 'express-validator';
-import { CustomError } from './CustomError';
+import { CustomError } from './customError';
 
 
 
