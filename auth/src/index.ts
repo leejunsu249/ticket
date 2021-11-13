@@ -13,6 +13,10 @@ import { NotFoundError } from './errors/not-found-error';
 const app = express();
 app.use(express.json());
 
+app.get('/index',(req,res) => {
+    res.send('hello');
+});
+
 app.use(currentUserRouter);
 app.use(signinRouter);
 app.use(signoutRouter);
