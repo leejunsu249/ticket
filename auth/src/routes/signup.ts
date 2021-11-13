@@ -2,7 +2,7 @@ import {Router, Request, Response} from 'express';
 import {body, validationResult} from 'express-validator'
 import {User} from '../models/user';
 import { RequestValidationError } from '../errors/request-validation';
-
+import {BadRequestError} from '../errors/badRequestError';
 
 const router = Router();
 
@@ -22,8 +22,7 @@ router.post('/api/users/signup',[
     const exUser = await User.findOneAndDelete({ email });
     
     if(exUser){
-        console.log('Email in use');
-        return res.send({});
+        throw new BadRequestError('사용중인 이메일 입니다.');
     }
 
     const user = User.build({email, password});

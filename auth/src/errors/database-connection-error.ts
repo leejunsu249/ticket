@@ -5,7 +5,7 @@ export class DataConnectionError extends CustomError{
     reason = 'db 접속 실패';
 
     constructor(){
-        super();
+        super('Error connecting to db');
         Object.setPrototypeOf(this, DataConnectionError.prototype);
     }
 
