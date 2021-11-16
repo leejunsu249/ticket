@@ -1,5 +1,6 @@
 import {Router, Request, Response} from 'express';
 import {body, validationResult} from 'express-validator'
+import jwt from 'jsonwebtoken';
 import {User} from '../models/user';
 import { RequestValidationError } from '../errors/request-validation';
 import {BadRequestError} from '../errors/badRequestError';
@@ -28,6 +29,10 @@ router.post('/api/users/signup',[
     const user = User.build({email, password});
     await user.save();
 
+    // kubectl create secret generic jwt-secret --from-literal=JWT_KEY=ticket
+    const userJwt = jwt.sign({id: user.id, email: user.email}, process.env.JWT_KEY!);
+    req.session = { jwt: userJwt };
+    
     res.status(201).send(user);
 });
 
