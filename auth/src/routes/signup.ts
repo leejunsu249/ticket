@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import {User} from '../models/user';
 import { RequestValidationError } from '../errors/request-validation';
 import {BadRequestError} from '../errors/badRequestError';
+import { validateRequest} from "../middlewares/validate-request"
 
 const router = Router();
 
@@ -11,12 +12,8 @@ router.post('/api/users/signup',[
     body('email').isEmail().withMessage('이메일 형식을 확인해주세요'),
     body('password').trim().isLength({ min:5, max: 20}).withMessage('암호는 5~20자 사이여야 합니다.')
 ],
+validateRequest,
  async (req: Request, res: Response) => {
-    const errors = validationResult(req);
-
-    if(!errors.isEmpty()){
-        throw new RequestValidationError(errors.array());
-    }
 
     const {email, password} = req.body;
 
