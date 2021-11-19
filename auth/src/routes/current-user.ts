@@ -1,13 +1,9 @@
 import {Router} from 'express';
-import jwt from 'jsonwebtoken';
-
+import { currentUser } from '../middlewares/current-user';
 const router = Router();
 
-router.get('/api/users/currentUser', (req, res) => {
-    if( !req.session || !req.session.jwt ){
-        return res.send({ currentUser: null});
-    }
-
+router.get('/api/users/currentUser',currentUser, (req, res) => {
+    res.send({currentUser: req.currentUser || null});
 });
 
 export {router as currentUserRouter};

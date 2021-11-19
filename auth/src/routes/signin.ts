@@ -29,7 +29,7 @@ async (req: Request, res: Response) => {
         throw new BadRequestError('잘못된 비밀번호 입니다.');
     }
     
-    res.status(200).send(exUser);
+    res.status(201).send(exUser);
 });
 
 export {router as signinRouter};

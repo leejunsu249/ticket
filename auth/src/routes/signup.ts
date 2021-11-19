@@ -1,8 +1,7 @@
 import {Router, Request, Response} from 'express';
-import {body, validationResult} from 'express-validator'
+import {body} from 'express-validator'
 import jwt from 'jsonwebtoken';
 import {User} from '../models/user';
-import { RequestValidationError } from '../errors/request-validation';
 import {BadRequestError} from '../errors/badRequestError';
 import { validateRequest} from "../middlewares/validate-request"
 
@@ -17,7 +16,7 @@ validateRequest,
 
     const {email, password} = req.body;
 
-    const exUser = await User.findOneAndDelete({ email });
+    const exUser = await User.findOne({ email });
     
     if(exUser){
         throw new BadRequestError('사용중인 이메일 입니다.');
