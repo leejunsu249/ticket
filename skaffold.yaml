@@ -18,3 +18,13 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+
+  artifacts:
+    - image: gcr.io/zinc-reason-331501/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.ts'
+            dest: .
