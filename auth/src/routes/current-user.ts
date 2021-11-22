@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import { currentUser } from '../middlewares/current-user';
+import { currentUser } from '@jsticket/common/build';
 const router = Router();
 
 router.get('/api/users/currentUser',currentUser, (req, res) => {
