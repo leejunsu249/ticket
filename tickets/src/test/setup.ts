@@ -7,7 +7,7 @@ import {app} from '../app';
 
 
 declare global {
-    function signin(): string[];
+    var signin: ()  => string[];
 }
 
 jest.mock('../nats-wrapper');
