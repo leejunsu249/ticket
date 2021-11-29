@@ -21,8 +21,8 @@ app.use(
 
 app.use(currentUser);
 
-app.use(indexOrderRouter);
 app.use(newOrderRouter);
+app.use(indexOrderRouter);
 app.use(showOrderRouter);
 app.use(deleteOrderRouter);
 
