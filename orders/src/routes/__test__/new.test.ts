@@ -1,11 +1,13 @@
 import mongoose from 'mongoose';
 import request from 'supertest';
 import { app } from '../../app';
-import { Order, OrderStatus } from '../../models/order'
-import { Ticket } from '../../models/ticket'
+import { Order, OrderStatus } from '../../models/order';
+import { Ticket } from '../../models/ticket';
+import { natsWrapper } from '../../nats-wrapper';
 
 const buildTicket = async () => {
     const ticket = Ticket.build({
+        id: new mongoose.Types.ObjectId().toHexString(),
         title: 'hello',
         price: 20
     });
@@ -56,4 +58,15 @@ it('reserves a ticket', async () => {
         .expect(201);
 });
 
-it.todo('emits an order created event');
+it('emits an order created event', async () => {
+    const ticket = await buildTicket();
+    
+    await request(app)
+        .post('/api/orders')
+        .set('Cookie', global.signin())
+        .send({ ticketId: ticket.id })
+        .expect(201);
+
+    expect(natsWrapper.client.publish).toHaveBeenCalled();
+    
+});
