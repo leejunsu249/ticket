@@ -29,4 +29,4 @@ __exportStar(require("./events/ticket-updated-event"), exports);
 __exportStar(require("./events/types/order-status"), exports);
 __exportStar(require("./events/order-cancelled-event"), exports);
 __exportStar(require("./events/order-created-event"), exports);
-//leejs
+__exportStar(require("./events/expiration-complete-event"), exports);

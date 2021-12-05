@@ -23,4 +23,4 @@ export * from './events/types/order-status';
 export * from './events/order-cancelled-event';
 export * from './events/order-created-event';
 
-//leejs
+export * from './events/expiration-complete-event';
