@@ -49,5 +49,13 @@ build:
       sync:
         manual:
           - src: 'src/**/*.ts'
-            dest: .            
+            dest: .      
+    - image: gcr.io/zinc-reason-331501/payments
+      context: payments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .                      
     
