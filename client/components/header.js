@@ -4,6 +4,8 @@ export default ({ currentUser} ) => {
    const links = [
        !currentUser && {label: '회원가입', href: '/auth/signup'},
        !currentUser && {label: '로그인', href: '/auth/signin'},
+       currentUser && {label: '티켓 판매', href: '/tickets/new'},
+       currentUser && {label: '주문내역', href: '/orders'},
        currentUser && {label: '로그아웃', href: '/auth/signout'}
    ]
    .filter(linkConfig => linkConfig)
