@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: gcr.io/zinc-reason-331501/client
+          image: wnstn385/client
 
 ---
 apiVersion: v1

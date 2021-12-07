@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: orders
-          image: gcr.io/zinc-reason-331501/orders
+          image: wnstn385/orders
           env:
             - name: NATS_URL
               value: 'http://nats-srv:4222'

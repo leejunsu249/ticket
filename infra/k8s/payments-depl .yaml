@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: payments
-          image: gcr.io/zinc-reason-331501/payments
+          image: wnstn385/payments
           env:
             - name: NATS_URL
               value: 'http://nats-srv:4222'

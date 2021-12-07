@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tickets
-          image: gcr.io/zinc-reason-331501/tickets
+          image: wnstn385/tickets
           env:
             - name: NATS_URL
               value: 'http://nats-srv:4222'

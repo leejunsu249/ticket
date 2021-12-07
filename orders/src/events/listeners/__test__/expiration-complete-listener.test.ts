@@ -2,9 +2,9 @@ import { Message } from 'node-nats-streaming';
 import mongoose from 'mongoose';
 import { ExpirationCompleteEvent, OrderStatus } from '@jsticket/common/build';
 import { ExpirationCompleteListener } from '../expiration-complete-listener';
-import { natsWrapper } from '../../../src/nats-wrapper';
-import { Ticket } from '../../../src/models/ticket';
-import { Order } from '../../../src/models/order';
+import { natsWrapper } from '../../../nats-wrapper';
+import { Ticket } from '../../../models/ticket';
+import { Order } from '../../../models/order';
 
 
 const setup = async () => {

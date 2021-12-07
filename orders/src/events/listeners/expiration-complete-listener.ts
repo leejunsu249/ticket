@@ -1,7 +1,7 @@
 import { Listener, ExpirationCompleteEvent, OrderStatus, Subjects } from '@jsticket/common/build';
 import { Message } from 'node-nats-streaming';
 import { queueGroupName } from './queue-group-name';
-import { Order } from '../../src/models/order';
+import { Order } from '../../models/order';
 import { OrderCancelledPublisher } from '../publisher/order-cancelled-publisher';
 
 export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent> {

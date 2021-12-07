@@ -1,6 +1,6 @@
 import { Message } from 'node-nats-streaming';
 import { Subjects, Listener, TicketCreatedEvent } from '@jsticket/common/build';
-import { Ticket } from '../../src/models/ticket';
+import { Ticket } from '../../models/ticket';
 import { queueGroupName } from './queue-group-name';
 
 export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
